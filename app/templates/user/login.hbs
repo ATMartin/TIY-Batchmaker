@@ -1,0 +1,13 @@
+
+<form>
+{{input value=username placeholder="Username"}}
+<br>
+{{input value=password placeholder="Password"}}
+<br>
+<button {{action "login" user}}>Login</button>
+<button {{action "newUser" user}}>New?</button>
+</form>
+
+
+
+{{outlet}}
