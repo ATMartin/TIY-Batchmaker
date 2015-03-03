@@ -1,1 +1,33 @@
+
+<h1>New Recipe</h1>
+<form {{action "makeRecipe" on="submit"}}>
+  <div class="add-photo">
+    [+]
+  </div>
+  {{input value=recipe.name placeholder="Recipe Name"}}
+  {{input value=recipe.author placeholder="Author"}}
+  {{view "select" value=recipe.type content=recipeTypes}}
+  <span>Time:</span>
+  {{input value=recipe.timePrep placeholder="Prep"}}
+  {{input value=recipe.timeCook placeholder="Cook"}}
+  {{input value=recipe.temp placeholder="Cook Temp"}}
+  <select class="tempUnits">
+    <option>F</option>
+    <option>C</option>
+  </select>
+  <br>
+  <span>recipe will make</span>
+  {{input value=recipe.yieldQty placeholder="Amount"}}
+  {{input value=recipe.yieldName placeholder="Name"}}
+  <br>
+  {{input value=ingredient.quantity placeholder="Quantity"}}
+  {{view "select" value=ingredient.units content=ingredientUnits}}
+  {{input value=ingredient.name placeholder="name"}}
+  {{textarea value=stepText placeholder="What steps do I need to make the recipe?"}}
+  <button{{action "makeRecipe"}}>Save</button>
+</form>
+
+
+
+
 {{outlet}}
