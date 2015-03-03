@@ -7,7 +7,7 @@ export function initialize(/* container, application */) {
       "X-Parse-REST-API-Key": "Z7sME6CGYsuD8Yxh5G6hy9EEZs0Mqy4OavqNQmR2"
     }
   });
-};
+}
 
 export default {
   name: 'parse-keys',
