@@ -1,6 +1,8 @@
 <h1>{{model.name}}</h1>
 {{model.author}}
-<div class="add-photo"></div>
+<div class="add-photo">
+  <img {{bind-attr src="model.photoUrl"}}>
+</div>
 <br>
 {{model.type}}
 {{model.timePrep}}
