@@ -11,19 +11,33 @@
   {{input value=recipe.timePrep placeholder="Prep"}}
   {{input value=recipe.timeCook placeholder="Cook"}}
   {{input value=recipe.temp placeholder="Cook Temp"}}
-  <select class="tempUnits">
-    <option>F</option>
-    <option>C</option>
-  </select>
+  {{view "select" value=recipe.tempUnit content=tempUnits}}
   <br>
   <span>recipe will make</span>
   {{input value=recipe.yieldQty placeholder="Amount"}}
   {{input value=recipe.yieldName placeholder="Name"}}
   <br>
+  <ul>
+  {{#each ingredient in recipe.ingredients}}
+    <li>
+      {{ingredient.quantity}}x 
+      {{#if ingredient.isItem }} 
+        {{ingredient.name}}
+      {{else}}
+        {{ingredient.units}} {{ingredient.name}}
+      {{/if}}
+    </li>
+  {{/each}}
+  </ul>
   {{input value=ingredient.quantity placeholder="Quantity"}}
   {{view "select" value=ingredient.units content=ingredientUnits}}
   {{input value=ingredient.name placeholder="name"}}
-  {{textarea value=stepText placeholder="What steps do I need to make the recipe?"}}
+  <button {{action "addIngredient"}}>+Ing</button>
+  {{textarea value=recipe.stepText placeholder="What steps do I need to make the recipe?"}}
+  <button {{action "addStep"}}>+Step</button>
+  {{#each step in recipe.steps}}
+    <h3>{{step}}</h3>
+  {{/each}}
   <button{{action "makeRecipe"}}>Save</button>
 </form>
 
