@@ -6,7 +6,7 @@ export default Ember.Controller.extend({
  actions: {
     makeRecipe: function() {
     //Grab all our inputs
-
+    console.log(this.get('model'));
     //Wrap our input values in an object
     
     //Send that object to Parse
