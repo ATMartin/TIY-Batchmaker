@@ -1,14 +1,19 @@
 import Ember from 'ember';
 
 export default Ember.Object.extend({
-  find: function(name, id) {
-    var adapter = this.container.lookup('adapter:' + name);
-    return adapter.find(name, id);
+  find: function(context, id) {
+    var adapter = this.container.lookup('adapter:' + context);
+    return adapter.find(context, id);
   },
 
-  findAll: function(name) {
-    var adapter = this.container.lookup('adapter:' + name);
-    return adapter.findAll(name);
+  findAll: function(context) {
+    var adapter = this.container.lookup('adapter:' + context);
+    return adapter.findAll(context);
+  },
+
+  push: function(context, object) {
+    var adapter = this.container.lookup('adapter:' + context);
+    return adapter.push(context, object);
   }
 
 });
