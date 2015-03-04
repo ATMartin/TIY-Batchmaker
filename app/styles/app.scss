@@ -1,0 +1,41 @@
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+
+header {
+  width: 100%;
+  background: linear-gradient(0deg, #ddd, #eee);
+  padding: 10px 15px;
+  border-bottom: 1px solid #ccc;
+  &>div {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .user-banner{
+    font-style: italic;
+    font-size: 1.5em;
+    width: 25%;   
+  }
+
+  .app-title{
+    text-align: center;
+    font-size: 2em;
+    font-family: 'Helvetica', sans-serif;
+    font-weight: bold;
+    color: #333;
+    width: 49%;
+  }
+  
+  .nav-buttons{
+    text-align: right; 
+    width: 25%;
+    &>span { 
+      padding: 0 10px; 
+      border: 1px solid transparent;
+      transition: all ease 0.2s;
+      &:hover {
+        color: #aaa;
+        border-color: #aaa;
+      }
+    }
+  }
+}
