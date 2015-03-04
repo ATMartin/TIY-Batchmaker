@@ -11,6 +11,7 @@
     "ember-load-initializers": "ember-cli/ember-load-initializers#0.0.2",
     "ember-qunit": "0.2.8",
     "ember-qunit-notifications": "0.0.7",
+    "octicons": "*",
     "qunit": "~1.17.1"
   }
 }
