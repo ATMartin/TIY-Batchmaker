@@ -3,8 +3,8 @@ import ajax from "ic-ajax";
 
 
 export default Ember.Object.extend({
-  find: function(name, id) {
-    return ajax("https://api.parse.com/1/classes/" + name + "/" + id)
+  find: function(parseClass, id) {
+    return ajax("https://api.parse.com/1/classes/" + parseClass + "/" + id)
           .then(function(data) {
             return data.results.map(function(obj) {
               // Convert "objectId" to "id" to play better with Ember
@@ -15,14 +15,26 @@ export default Ember.Object.extend({
           });
   },
 
-  findAll: function(name) {
-    return ajax("https://api.parse.com/1/classes/" + name + "/")
+  findAll: function(parseClass) {
+    return ajax("https://api.parse.com/1/classes/" + parseClass + "/")
           .then(function(data) {
             return data.results.map(function(obj) {
               obj.id = obj.objectId;
               delete obj.objectId;
               return obj;  
             });  
+          });
+  },
+
+  push: function(parseClass, object) {
+    return ajax({
+            url: "https://api.parse.com/1/classes/" + parseClass + "/",
+            type: "POST",
+            data: JSON.stringify(object)
+          })
+          .then(function(data) {
+            console.log(data);
+            return data;
           });
   }
 
