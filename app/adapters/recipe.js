@@ -6,12 +6,10 @@ export default Ember.Object.extend({
   find: function(parseClass, id) {
     return ajax("https://api.parse.com/1/classes/" + parseClass + "/" + id)
           .then(function(data) {
-            return data.results.map(function(obj) {
               // Convert "objectId" to "id" to play better with Ember
-              obj.id = obj.objectId;
-              delete obj.objectId;
-              return obj;
-            });
+              data.id = data.objectId;
+              delete data.objectId;
+              return data;
           });
   },
 
