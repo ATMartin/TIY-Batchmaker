@@ -1,1 +1,35 @@
-{{outlet}}
+<h1>{{model.name}}</h1>
+{{model.author}}
+<div class="add-photo"></div>
+<br>
+{{model.type}}
+{{model.timePrep}}
+{{model.timeCook}}
+{{model.temp}}
+<br>
+{{model.yieldQty}}
+<button name="adjustQty">Adjust Quantity</button>
+<br>
+<ul>
+{{#each ingredient in model.ingredients}}
+  <li>
+    {{ingredient.quantity}}x
+    {{#if ingredient.isItem }}
+      {{ingredient.name}}
+    {{else}}
+      {{ingredient.units}} {{ingredient.name}}
+    {{/if}}
+  </li>
+{{/each}}
+</ul>
+<br>
+
+<ul>
+  {{#each step in model.steps}}
+  <li>
+    {{stepText}}
+  </li>
+  {{/each}}
+</ul>
+<br>
+<button name="editRecipe">Edit Recipe</button>
