@@ -4,7 +4,11 @@
 <br>
 {{input type="password" value=password placeholder="Password"}}
 <br>
-<button {{action "login" user}}>Login</button>
+{{#if model }}
+  <button {{action "logout" user}}>Logout</button>
+{{else}}
+  <button {{action "login" user}}>Login</button>
+{{/if}}
 <button {{action "newUser" user}}>New?</button>
 </form>
 

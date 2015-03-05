@@ -1,14 +1,34 @@
 <header>
   <div class="user-banner">
-    The kitchen is yours, chef!
+    The kitchen is yours, 
+    {{#if model}}
+      {{#if model.nickname}} 
+        {{model.nickname}} 
+      {{else}}
+        {{model.username}} 
+      {{/if}} 
+    {{else}}
+      chef
+    {{/if}}
+    !
   </div>
   <div class="app-title">
     Batch Maker
   </div>
   <div class="nav-buttons">
-    <span class="add"><i class="mega-octicon octicon-plus"></i></span>
-    <span class="settings"><i class="mega-octicon octicon-gear"></i></span>
-    <span class="user"><i class="mega-octicon octicon-person"></i></span>
+    {{#if model }}
+      <span>Hello, {{#if model.nickname}} {{model.nickname}} {{else}} {{model.username}} {{/if}}</span>
+      <span {{action "logout"}}>{{link-to "(logout)"}}</span>
+    {{else}}
+      <span>{{link-to "(login)" "user.login"}}</span>
+    {{/if}}
+    <span class="add">{{#link-to "recipe.new"}}<i class="mega-octicon octicon-plus"></i>{{/link-to}}</span>
+    <span class="settings">{{#link-to "user.profile"}}<i class="mega-octicon octicon-gear"></i>{{/link-to}}</span>
+    {{#if model }}
+      <span class="user">  
+        {{#link-to "user.edit" model}}<i class="mega-octicon octicon-person"></i>{{/link-to}}
+      </span>
+    {{/if}}
   </div>
 </header>
 
