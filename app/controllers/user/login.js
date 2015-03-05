@@ -12,6 +12,10 @@ export default Ember.ObjectController.extend({
     };
   }.property('username', 'password'),
   actions: {
+    resetInputs: function() {
+      this.set('username', '');
+      this.set('password', '');
+    },
     login: function() {
       var self = this;
       return Ember.$.ajax({
@@ -19,13 +23,19 @@ export default Ember.ObjectController.extend({
         type: "GET",
         data: this.get('userObject')  
       }).then(function(data) {
-        //console.log(data);
         self.set("isAuth", data);
         Ember.$.ajaxSetup({
           headers: {
             "X-Parse-Session-Token": data.sessionToken
           }
         });
+        console.log("Logged in!");
+        data.id = data.objectId;
+        delete data.objectId;
+        self.set('username', '');
+        self.set('password', '');
+        self.send('reload');
+        self.transitionToRoute("user.profile", data);
       });
     },
     logout: function() {
@@ -35,8 +45,10 @@ export default Ember.ObjectController.extend({
           "X-Parse-Session-Token": null
         }  
       });
-      console.log(this.get('model'));
       console.log("Logged out!");
+      this.set('username', '');
+      this.set('password', '');
+      this.send("reload"); 
     },
     newUser: function() {
       return Ember.$.ajax({
