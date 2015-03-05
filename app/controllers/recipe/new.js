@@ -27,8 +27,15 @@ export default Ember.Controller.extend({
       if (newIngredient.units === "(Item)") {
         newIngredient.isItem = true;
       }
+      newIngredient.id = Math.floor(Math.random() * 10000);
       this.get('recipe.ingredients').pushObject(newIngredient);
       this.set('ingredient', {});
+    },
+
+    removeIngredient: function(ingId) {
+      var ings = this.get('recipe.ingredients');
+      var newings = ings.filter(function(i) { if (i.id !== ingId) { return i; } });
+      this.set('recipe.ingredients', newings);
     },
     
     makeRecipe: function() {
@@ -37,6 +44,12 @@ export default Ember.Controller.extend({
     //Wrap our input values in an object
       //  Again, dynamic. Thanks, Ember! 
     //Send that object to Parse
+      // clear the ids off our ingredients - not needed in our DB.
+      var newings = this.get('recipe.ingredients').map(function(i) {
+        delete i.id;
+        return i;  
+      });
+      this.set('recipe.ingredients', newings);
       this.parse.push("Recipe", this.get('recipe'));
     //Transition to recipe view
       //  Until we implement the recipe.view template, 
