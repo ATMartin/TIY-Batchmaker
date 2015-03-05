@@ -16,8 +16,8 @@ export default Ember.Controller.extend({
       this.set('stepText', '');
     },
     editRecipe: function(){
-      this.parse.update("recipe", this.get('model'));
-      console.log("update");
+      this.parse.update("Recipe", this.get('model'));
+      this.transitionToRoute("recipe.view", this.get('model'));
     }
   }
 });
