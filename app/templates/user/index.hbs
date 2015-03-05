@@ -1,7 +1,8 @@
 <div class="slider my-recipes">
   <!-- #each block -->
   <div class="recipe-square">
-    [ + ]
+    <img {{bind-attr src="photoUrl"}} />
+    {{recipe.name}}
   </div>
   <!-- /each -->
 </div>
