@@ -23,7 +23,7 @@
       <span>{{link-to "(login)" "user.login"}}</span>
     {{/if}}
     <span class="add">{{#link-to "recipe.new"}}<i class="mega-octicon octicon-plus"></i>{{/link-to}}</span>
-    <span class="settings">{{#link-to "user.profile"}}<i class="mega-octicon octicon-gear"></i>{{/link-to}}</span>
+    <span class="settings">{{#link-to "user.profile" model}}<i class="mega-octicon octicon-gear"></i>{{/link-to}}</span>
     {{#if model }}
       <span class="user">  
         {{#link-to "user.edit" model}}<i class="mega-octicon octicon-person"></i>{{/link-to}}
