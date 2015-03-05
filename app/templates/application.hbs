@@ -6,6 +6,11 @@
     Batch Maker
   </div>
   <div class="nav-buttons">
+    {{#if model}}
+      <span>Logged In!</span>
+    {{else}}
+      <span>Logged out!</span>
+    {{/if}}
     <span class="add">{{#link-to "recipe.new"}}<i class="mega-octicon octicon-plus"></i>{{/link-to}}</span>
     <span class="settings">{{#link-to "user.profile"}}<i class="mega-octicon octicon-gear"></i>{{/link-to}}</span>
     <span class="user">{{#link-to "user.login"}}<i class="mega-octicon octicon-person"></i>{{/link-to}}</span>
