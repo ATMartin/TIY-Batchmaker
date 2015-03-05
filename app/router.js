@@ -14,6 +14,7 @@ Router.map(function() {
   this.resource('recipe', { path: '/recipe' }, function() {
     this.route('new');
     this.route('view', { path: '/view/:recipe_id' });
+    this.route('edit', { path: '/edit/:recipe_id' });
   });
 });
 
