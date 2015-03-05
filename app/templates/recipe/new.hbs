@@ -28,7 +28,9 @@
       {{else}}
         {{ingredient.units}} {{ingredient.name}}
       {{/if}}
+      <button {{action "removeIngredient" ingredient.id}}> -- </button>
     </li>
+
   {{/each}}
   </ul>
   {{input value=ingredient.quantity placeholder="Quantity"}}
