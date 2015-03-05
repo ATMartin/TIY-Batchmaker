@@ -34,6 +34,18 @@ export default Ember.Object.extend({
             console.log(data);
             return data;
           });
+  },
+
+  update: function(parseClass, object) {
+    return ajax({
+        url: "https://api.parse/com/1/classes/" + parseClass + "/" + object.id,
+        type: "PUT",
+        data: JSON.stringify(object)
+      })
+      .then(function(data) {
+        console.log(data);
+        return data;  
+      });
   }
 
 });
