@@ -1,4 +1,5 @@
 * { box-sizing: border-box; }
+
 html, body { margin: 0; padding: 0; }
 
 header {
@@ -6,14 +7,16 @@ header {
   background: linear-gradient(0deg, #ddd, #eee);
   padding: 10px 15px;
   border-bottom: 1px solid #ccc;
+
   &>div {
     display: inline-block;
     vertical-align: middle;
   }
+
   .user-banner{
     font-style: italic;
     font-size: 1.5em;
-    width: 25%;   
+    width: 25%;
   }
 
   .app-title{
@@ -24,18 +27,62 @@ header {
     color: #333;
     width: 49%;
   }
-  
+
   .nav-buttons{
-    text-align: right; 
+    text-align: right;
     width: 25%;
-    &>span { 
-      padding: 0 10px; 
+    font-decoration: none;
+    color: white;
+
+    &>span {
+      padding: 0 10px;
       border: 1px solid transparent;
       transition: all ease 0.2s;
+
       &:hover {
-        color: #aaa;
+        color: #ccc;
         border-color: #aaa;
       }
     }
   }
+}
+
+body{
+  margin: 0 auto;
+/*   width: 1100px; */
+  background-color: #2c2a26;
+  color: white;
+  display: block;
+}
+
+button{
+  background-color: #ea8300;
+  color: white;
+  font-size: 10px;
+}
+
+form{
+  width: 750px;
+  background-color: #504f4b;
+  border: white 2px solid;
+  border-radius: 10px;
+  padding: 50px;
+  margin-bottom: 50px;
+  line-height: 30px;
+}
+
+ul{
+  background-color: white;
+  padding: 50px;
+  margin-bottom: 50px;
+  color: black;
+  width: 500px;
+}
+
+#model.steps{
+  background-color: white;
+  padding: 50px;
+  margin-bottom: 50px;
+  color: black;
+  width: 500px;
 }

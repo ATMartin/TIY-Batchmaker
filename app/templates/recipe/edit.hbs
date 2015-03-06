@@ -1,22 +1,21 @@
 <h1>Edit Recipe</h1>
 <form {{action "editRecipe" on="submit"}}>
   <div class="add-photo">
-    Photo:
-    {{input value=model.photoUrl placeholder="Photo URL"}}
-    <img {{bind-attr src="model.photoUrl"}} width=300px height=300px >
+    Photo: {{input value=model.photoUrl placeholder="Photo URL"}}<br>
+    <img {{bind-attr src="model.photoUrl"}} width=300px height=300px ><br>
   </div>
-  {{input value=model.name placeholder="Recipe Name"}}
-  {{input value=model.author placeholder="Author"}}
-  {{view "select" value=model.type content=recipeTypes}}
-  <span>Time:</span>
-  {{input value=model.timePrep placeholder="Prep"}}
-  {{input value=model.timeCook placeholder="Cook"}}
-  {{input value=model.temp placeholder="Cook Temp"}}
-  {{view "select" value=model.tempUnit content=tempUnits}}
+    Recipe: {{input value=model.name placeholder="Recipe Name"}}<br>
+    Author: {{input value=model.author placeholder="Author"}}<br>
+    Meal Type: {{view "select" value=model.type content=recipeTypes}}<br>
+  <span>Time:</span><br>
+    {{input value=model.timePrep placeholder="Prep"}}<br>
+    {{input value=model.timeCook placeholder="Cook"}}<br>
+    {{input value=model.temp placeholder="Cook Temp"}}
+    {{view "select" value=model.tempUnit content=tempUnits}}
   <br>
-  <span>recipe will make</span>
-  {{input value=model.yieldQty placeholder="Amount"}}
-  {{input value=model.yieldName placeholder="Name"}}
+  <span>Recipe will make</span>
+    {{input value=model.yieldQty placeholder="Amount"}}
+    {{input value=model.yieldName placeholder="Name"}}
   <br>
   <ul>
   {{#each ingredient in model.ingredients}}
@@ -29,19 +28,21 @@
       {{/if}}
       <button {{action "removeIngredient" ingredient.id}}> -- </button>
     </li>
-
   {{/each}}
   </ul>
   {{input value=ingredient.quantity placeholder="Quantity"}}
   {{view "select" value=ingredient.units content=ingredientUnits}}
-  {{input value=ingredient.name placeholder="name"}}
-  <button {{action "addIngredient"}}>+Ing</button>
-  {{textarea value=stepText placeholder="Do you have any additional steps?"}}
-  <button {{action "addStep"}}>+Step</button>
+  {{input value=ingredient.name placeholder="name"}}<br>
+  <button {{action "addIngredient"}}>Add Ingredients</button><br>
+  {{textarea value=stepText placeholder="Do you have any additional steps?"}}<br>
+  <button {{action "addStep"}}>Additional Steps</button><br>
+  <ul>
   {{#each step in model.steps}}
-    <h3>{{step}}</h3>
+    <li>{{step}}</li>
   {{/each}}
-  <button{{action "editRecipe"}}>Save</button>
+  </ul>
+  <button{{action "editRecipe"}}>Save New Edits</button>
+  </ul>
 </form>
 
 
