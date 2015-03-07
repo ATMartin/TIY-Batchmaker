@@ -1,7 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  model: function() {
-    return this.parse.findAll('Recipe');
-  }
+    model: function() {
+      var myUser = this.controllerFor('user').currentUser;
+      return this.parse.findAllByUser('Recipe', myUser);
+    }
 });

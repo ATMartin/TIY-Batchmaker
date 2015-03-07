@@ -1,18 +1,20 @@
 <div class="slider my-recipes">
-  <!-- #each block -->
-  <div class="recipe-square">
-    <img {{bind-attr src="photoUrl"}} />
-    {{recipe.name}}
-  </div>
-  <!-- /each -->
 </div>
 
 <div class="slider public-recipes">
-
 </div>
 
 <div class="slider favorite-recipes">
+</div>
 
+<div class="slider all-recipes">
+  <h4>All Recipes:</h4>
+  {{#each recipe in model}}
+    <div class="recipe-square" style="border:1px solid red">
+      <img {{bind-attr src="recipe.photoUrl"}} style="width: 100px; height: 100px;">
+      <button {{action "gotoView" recipe}}> + </button>
+    </div>
+  {{/each}}
 </div>
 
 {{outlet}}

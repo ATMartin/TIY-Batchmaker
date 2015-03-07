@@ -23,8 +23,8 @@ module.exports = function(environment) {
       'script-src': "'self'",
       'font-src': "'self'",
       'connect-src': "'self' https://api.parse.com/",
-      'img-src': "'self'",
-      'style-src': "'self'",
+      'img-src': "'self' *",
+      'style-src': "'self' 'unsafe-inline'",
       'media-src': "'self'"
     }
   };
