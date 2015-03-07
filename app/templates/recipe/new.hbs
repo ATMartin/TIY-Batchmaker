@@ -4,18 +4,23 @@
   <div class="add-photo">
     Photo:
     {{input value=recipe.photoUrl placeholder="Photo URL"}}
-    <img {{bind-attr src="recipe.photoUrl"}} width=300px height=300px >
+    {{#if recipe.photoUrl}}
+      <img {{bind-attr src="recipe.photoUrl"}} width=300px height=300px >
+    {{/if}}
   </div>
   {{input value=recipe.name placeholder="Recipe Name"}}
   {{input value=recipe.author placeholder="Author"}}
   {{view "select" value=recipe.type content=recipeTypes}}
+  <br>
+  <span>Public?: {{input type="checkbox" checked=recipe.isPublic}}</span>
+  <br>
   <span>Time:</span>
   {{input value=recipe.timePrep placeholder="Prep"}}
   {{input value=recipe.timeCook placeholder="Cook"}}
   {{input value=recipe.temp placeholder="Cook Temp"}}
   {{view "select" value=recipe.tempUnit content=tempUnits}}
   <br>
-  <span>recipe will make</span>
+  <span>Recipe will make</span>
   {{input value=recipe.yieldQty placeholder="Amount"}}
   {{input value=recipe.yieldName placeholder="Name"}}
   <br>
@@ -37,8 +42,10 @@
   {{view "select" value=ingredient.units content=ingredientUnits}}
   {{input value=ingredient.name placeholder="name"}}
   <button {{action "addIngredient"}}>+Ing</button>
+  <br>
   {{textarea value=recipe.stepText placeholder="What steps do I need to make the recipe?"}}
   <button {{action "addStep"}}>+Step</button>
+  <br>
   {{#each step in recipe.steps}}
     <h3>{{step}}</h3>
   {{/each}}
