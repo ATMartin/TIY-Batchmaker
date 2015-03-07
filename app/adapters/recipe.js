@@ -24,6 +24,27 @@ export default Ember.Object.extend({
           });
   },
 
+  findAllByUser: function(parseClass, user) {
+    var request = {
+      "$or": [
+        { 'author': user.nickname },
+        { 'isPublic' : true }
+      ]
+    };
+    return ajax({
+      url: "https://api.parse.com/1/classes/" + parseClass + "/",
+      type: "GET",
+      data: "where=" + JSON.stringify(request)
+    })
+    .then(function(data) {
+       return data.results.map(function(obj) {
+        obj.id = obj.objectId;
+        delete obj.objectId;
+        return obj;
+       });
+    });
+  },
+
   push: function(parseClass, object) {
     return ajax({
             url: "https://api.parse.com/1/classes/" + parseClass + "/",

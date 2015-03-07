@@ -11,6 +11,11 @@ export default Ember.Object.extend({
     return adapter.findAll(context);
   },
 
+  findAllByUser: function(context, user) {
+    var adapter = this.container.lookup('adapter:' + context);
+    return adapter.findAllByUser(context, user);
+  },
+
   push: function(context, object) {
     var adapter = this.container.lookup('adapter:' + context);
     return adapter.push(context, object);
