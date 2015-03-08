@@ -100,12 +100,13 @@ ul{
   position: relative;
   display: inline-block;
   text-align: center;
-  border: 1px solid gray;
+  border: 1px solid #ddd;
   border-radius: 5px;
   width: 150px;
   height: 150px;
   margin: 0 10px;
   overflow: hidden;
+  cursor: pointer;
   img { 
     height: 150px;
     width: 150px;

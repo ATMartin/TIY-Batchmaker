@@ -6,7 +6,8 @@ export default Ember.Controller.extend({
   tempUnits: ['F', 'C'],
   recipe: {
     steps: [],
-    ingredients: []
+    ingredients: [],
+    isPublic: false
   },
   ingredient: {},
   actions: {

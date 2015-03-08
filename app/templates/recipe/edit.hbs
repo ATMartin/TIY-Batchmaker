@@ -13,6 +13,8 @@
     {{input value=model.temp placeholder="Cook Temp"}}
     {{view "select" value=model.tempUnit content=tempUnits}}
   <br>
+  <span>Public?: </span>{{input type="checkbox" checked=model.isPublic}}
+  <br>
   <span>Recipe will make</span>
     {{input value=model.yieldQty placeholder="Amount"}}
     {{input value=model.yieldName placeholder="Name"}}

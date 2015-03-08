@@ -1,11 +1,11 @@
 <div class="my-recipes">
   <h4>My Recipes:</h4>
   <div class="slider">
-  <div class="recipe-square new">
+  <div {{action "gotoNew"}} class="recipe-square new">
     <span class="title">Add New...</span>
   </div>
   {{#each recipe in recipesMine }}
-    <div {{action "gotoView" recipe}} class="recipe-square" style="border:1px solid red">
+    <div {{action "gotoView" recipe}} class="recipe-square">
       <img {{bind-attr src="recipe.photoUrl"}}>
       <span class="title">{{recipe.name}}</span>
     </div>
@@ -18,7 +18,7 @@
   <h4>Public Recipes:</h4>
   <div class="slider">
   {{#each recipe in recipesPublic }}
-    <div {{action "gotoView" recipe}} class="recipe-square" style="border:1px solid red">
+    <div {{action "gotoView" recipe}} class="recipe-square">
       <img {{bind-attr src="recipe.photoUrl"}}>
       <span class="title">{{recipe.name}}</span>
     </div>
@@ -31,7 +31,7 @@
   <h4>All Recipes:</h4>
   <div class="slider">
   {{#each recipe in model}}
-    <div {{action "gotoView" recipe}} class="recipe-square" style="border:1px solid red">
+    <div {{action "gotoView" recipe}} class="recipe-square">
       <img {{bind-attr src="recipe.photoUrl"}}>
       <span class="title">{{recipe.name}}</span>
     </div>
